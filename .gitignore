@@ -57,3 +57,5 @@ dkms.conf
 # Build folders
 build/
 release/
+.cache/clangd/index
+res/swappy.glade~
