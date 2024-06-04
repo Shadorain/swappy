@@ -66,6 +66,7 @@ The following lines can be used as swappy's default:
 	paint_mode=brush
 	early_exit=false
 	fill_shape=false
+	transparent=false
 	custom_color=rgba(192,125,17,1)
 ```
 
@@ -78,6 +79,7 @@ The following lines can be used as swappy's default:
 - *paint_mode* is the mode activated at application start (must be one of: brush|text|rectangle|ellipse|arrow|blur, matching is case-insensitive)
 - *early_exit* is used to make the application exit after saving the picture or copying it to the clipboard
 - *fill_shape* is used to toggle shape filling (for the rectangle and ellipsis tools) on or off upon startup
+- *transparent* is used to toggle transparency (50% oppacity of everything that is drawn) during startup
 - *custom_color* is used to set a default value for the custom color
 
 
@@ -104,6 +106,7 @@ The following lines can be used as swappy's default:
 - *Plus*: Increase Stroke Size
 - *Equal*: Reset Stroke Size
 - *f*: Toggle Shape Filling
+- *T*: Toggle Transparency
 - *k*: Clear Paints (cannot be undone)
 
 ## MODIFIERS
