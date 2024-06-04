@@ -21,6 +21,7 @@ static void print_config(struct swappy_config *config) {
   g_info("text_size: %d", config->text_size);
   g_info("paint_mode: %d", config->paint_mode);
   g_info("early_exit: %d", config->early_exit);
+  g_info("fill_shape: %d", config->fill_shape);
   g_info("custom_color: %s", config->custom_color);
 }
 
@@ -80,6 +81,7 @@ static void load_config_from_file(struct swappy_config *config,
   gchar *text_font = NULL;
   gchar *paint_mode = NULL;
   gboolean early_exit;
+  gboolean fill_shape;
   gchar *custom_color = NULL;
   GError *error = NULL;
 
@@ -231,6 +233,15 @@ static void load_config_from_file(struct swappy_config *config,
     error = NULL;
   }
 
+  fill_shape = g_key_file_get_boolean(gkf, group, "fill_shape", &error);
+  if (error == NULL) {
+    config->fill_shape = fill_shape;
+  } else {
+    g_info("fill_shape is missing in %s (%s)", file, error->message);
+    g_error_free(error);
+    error = NULL;
+  }
+
   g_key_file_free(gkf);
 }
 
@@ -247,6 +258,7 @@ static void load_default_config(struct swappy_config *config) {
   config->show_panel = CONFIG_SHOW_PANEL_DEFAULT;
   config->paint_mode = CONFIG_PAINT_MODE_DEFAULT;
   config->early_exit = CONFIG_EARLY_EXIT_DEFAULT;
+  config->fill_shape = CONFIG_FILL_SHAPE_DEFAULT;
   config->custom_color = CONFIG_CUSTOM_COLOR_DEFAULT;
 }
 
